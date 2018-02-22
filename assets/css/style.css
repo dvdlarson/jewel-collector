@@ -1,0 +1,51 @@
+body {
+    background-image:url("../images/space.jpg");
+}
+
+.gembutton {
+   
+    float:left;
+    min-height:100px;
+    margin:auto;
+}
+
+.instructions {
+    color:lightgrey;
+    font-size:1.5rem;
+    line-height:1.5;
+    border-bottom-style:dotted;
+    border-bottom-color:black;
+}
+
+.maintitle {
+    color:orange;
+    font-size:5rem;
+}
+
+.gametext {
+    color:white;
+    font-size:2rem;
+}
+
+img {
+    height:100px;
+    width:100px;
+}
+
+.infotext {
+    font-size:2.5rem;
+    color:ghostwhite;
+    text-align:center;
+    margin-top:1.5rem;
+}
+
+#bottomRow {
+    border-top-style:solid;
+    border-top-color:rgba(248, 248, 255, 0.45);
+    border-top-width:.2rem;
+    
+    margin-top:2rem;
+}
+
+
+

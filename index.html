@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    <script src="./assets/javascript/game.js"></script>
+    <script src="./assets/javascript/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center maintitle">Jewel Collector</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center instructions">
+                <ul>
+                    <li>The goal is to collect a number of jewels matching the target value.</li>
+                    <li>If you exceed the target, you lose and the game will reset.</li>
+                    <li>The value of each jewel varies and does not change during the game.</li>
+                    <li>The value of the jewels may change with each new game.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:2rem">
+            <img id="button1" value="0" class="gembutton" src="./assets/images/kryptonite.png"/>
+            <img id="button2" value="0" class="gembutton" src="./assets/images/blue.png"/>
+            <img id="button3" value="0" class="gembutton" src="./assets/images/sapphire.png"/>
+            <img id="button4" value="0" class="gembutton" src="./assets/images/amethyst.png"/>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-6 infotext" id="targetNumber"></div>
+            <div class="col-xs-12 col-md-6 infotext" id="playerScore"></div>
+            
+        </div>
+
+        <div class="row" id="bottomRow">
+            <div class="col-xs-12 col-md-6 infotext" id="winCount"></div>
+            <div class="col-xs-12 col-md-6 infotext" id="lossCount"></div>
+        </div>
+
+
+    </div><!--end container div-->
+    <script type="text/javascript">
+        $(document).ready(reset());
+        $(document).on("click", ".gembutton img", function(){
+
+            var gemValue=$(this).val("value");
+            console.log(gemValue);
+            playerScore += gemValue;
+            if (checkWin(targetValue,playerScore)) {
+                winGame();
+            }
+            else if (playerScore>targetValue) {
+                loseGame();
+            }
+
+        })
+    </script>
+
+</body>
+</html>
