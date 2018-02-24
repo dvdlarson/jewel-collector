@@ -23,6 +23,8 @@ function checkWin(target,value){
 }
 
 function newGame() {
+    $("#playAgainButton").attr("style","display:none");
+    $("#resultsRow").attr("style","display:none");
     playerScore=0;
     $("#playerScore").text("Your total jewels: " + playerScore);
     targetValue = getRandomInterval(19,120);
@@ -41,6 +43,8 @@ function newGame() {
 }
 
 function reset() {
+    $("#playAgainButton").attr("style","display:none");
+    $("#resultsRow").attr("style","display:none");
     winCount=0;
     lossCount=0;
     $("#winCount").text("Total Wins: " + winCount);
@@ -51,18 +55,26 @@ function reset() {
 function winGame() {
     winCount++;
     $("#winCount").text("Total Wins: " + winCount);
-    newGame();
+    $("#resultsRow").attr("style","display:block");
+    $("#results").text("YOU WIN!");
+    $("#playAgainButton").attr("style","display:block");   
 }
 
 function loseGame() {
     lossCount++;
     $("#lossCount").text("Total Losses: " + lossCount);
-    newGame();
+    $("#results").attr("style","display:block");
+    $("#results").text("YOU LOSE!");
+    $("#playAgainButton").attr("style","display:block");
 }
 
 function playGame(gemValue,playerScore) {
-    playerScore += gemValue;
-    $("#playerScore").innerHTML("Your total jewels: " + playerScore);
+    var gemValue=parseInt($(this).attr("value"));
+            console.log(gemValue,playerScore);
+
+            playerScore += gemValue;
+
+            $("#playerScore").text("Your total jewels: " + playerScore);
 
             if (checkWin(targetValue,playerScore)) {
                 winGame();
@@ -70,4 +82,5 @@ function playGame(gemValue,playerScore) {
             else if (playerScore>targetValue) {
                 loseGame();
             }
+
 }

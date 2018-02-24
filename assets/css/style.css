@@ -47,12 +47,29 @@ img {
     margin-top:1.5rem;
 }
 
+.resultsText {
+    font-size:2.5rem;
+    color:ghostwhite;
+    text-align:center;
+    margin-top:1.5rem;
+}
+
+
 #bottomRow {
     border-top-style:solid;
     border-top-color:rgba(248, 248, 255, 0.45);
     border-top-width:.2rem;
     
     margin-top:2rem;
+}
+
+.playagain {
+    font-size:1.5rem;
+    background-color:rgb(255, 255, 255,0.25);
+    border-color:rgb(255, 255, 255,0.25);
+    margin-bottom:.25rem;
+    
+    
 }
 
 
