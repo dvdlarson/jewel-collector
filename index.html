@@ -28,7 +28,7 @@
         </div>
 
         <div class="row" style="margin-top:2rem">
-            <img id="button1" value="0" class="gembutton" src="./assets/images/kryptonite.png"/>
+            <img id="button1" value="0" class="gembutton" src="./assets/images/kryptonite.png" onclick=""/>
             <img id="button2" value="0" class="gembutton" src="./assets/images/blue.png"/>
             <img id="button3" value="0" class="gembutton" src="./assets/images/sapphire.png"/>
             <img id="button4" value="0" class="gembutton" src="./assets/images/amethyst.png"/>
@@ -49,11 +49,17 @@
     </div><!--end container div-->
     <script type="text/javascript">
         $(document).ready(reset());
-        $(document).on("click", ".gembutton img", function(){
+        // $(document).on("click", ".gembutton img", function(){
+        $(document).ready(function(){
+            
+            $(".gembutton").on("click",function() {
+            var gemValue=parseInt($(this).attr("value"));
+            console.log(gemValue,playerScore);
 
-            var gemValue=$(this).val("value");
-            console.log(gemValue);
             playerScore += gemValue;
+
+            $("#playerScore").text("Your total jewels: " + playerScore);
+
             if (checkWin(targetValue,playerScore)) {
                 winGame();
             }
@@ -62,6 +68,7 @@
             }
 
         })
+    });
     </script>
 
 </body>

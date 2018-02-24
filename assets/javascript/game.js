@@ -60,3 +60,14 @@ function loseGame() {
     newGame();
 }
 
+function playGame(gemValue,playerScore) {
+    playerScore += gemValue;
+    $("#playerScore").innerHTML("Your total jewels: " + playerScore);
+
+            if (checkWin(targetValue,playerScore)) {
+                winGame();
+            }
+            else if (playerScore>targetValue) {
+                loseGame();
+            }
+}
